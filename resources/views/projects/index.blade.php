@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="card-body">
-    <table class="table">
+    <table class="table table-hover">
         <tr>
             <th>Project name</th>
             <th>Responsible employee(s)</th>
@@ -17,16 +17,16 @@
             </td>            
             <td>
                 <form action={{ route('project.destroy', $project->id) }} method="POST">
-                <a class="btn btn-success" href={{ route('project.edit', $project->id) }}>Edit</a>
+                <a class="btn btn-info" href={{ route('project.edit', $project->id) }}>Edit</a>
                 @csrf @method('delete')
-                <input type="submit" class="btn btn-danger" value="Delete"/>
+                <input type="submit" class="btn btn-secondary" value="Delete"/>
                 </form>
             </td>
         </tr>
         @endforeach
     </table>
     <div>
-        <a href="{{ route('project.create') }}" class="btn btn-success">Add new</a>
+        <a href="{{ route('project.create') }}" class="btn btn-info">Add new</a>
     </div>
 </div>
 @endsection

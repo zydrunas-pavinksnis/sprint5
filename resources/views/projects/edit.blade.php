@@ -12,7 +12,7 @@
                             <label for="">Project name</label>
                             <input type="text" name="name" class="form-control" value="{{ $project->name }}">
                         </div>
-                        <button type="submit" class="btn btn-primary">Change</button>
+                        <button type="submit" class="btn btn-info">Change</button>
                     </form>
                 </div>
             </div>

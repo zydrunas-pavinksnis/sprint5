@@ -18,10 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('project', 'ProjectController');
-Route::resource('employee', 'EmployeeController');
+Route::middleware(['auth'])->group(function(){
+    Route::resource('project', 'ProjectController');
+    Route::resource('employee', 'EmployeeController');
+    Route::get('customers/{id}/travel', 'CustomerController@travel')->name('customers.travel');
+});
 
 
-Auth::routes();
+Auth::routes(['register' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');

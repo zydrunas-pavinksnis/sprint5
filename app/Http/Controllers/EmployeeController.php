@@ -16,13 +16,11 @@ class EmployeeController extends Controller
     
     public function create(){
         $projects = \App\Project::orderBy('name')->get();
-        return view('employees.create', ['employees' => $projects]);
+        return view('employees.create', ['projects' => $projects]);
     }
     
     public function store(Request $request){
         $employee = new Employee();
-        // can be used for seeing the insides of the incoming request
-        // var_dump($request->all()); die();
         $employee->fill($request->all());
         $employee->save();
         return redirect()->route('employee.index');

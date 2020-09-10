@@ -17,8 +17,6 @@ class ProjectController extends Controller
 
     public function store(Request $request) {
         $project = new Project();
-        // can be used for seeing the insides of the incoming request
-        // var_dump($request->all()); die();
         $project->fill($request->all());
         $project->save();
         return redirect()->route('project.index');
